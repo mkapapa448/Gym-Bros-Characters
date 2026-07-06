@@ -2,6 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://chnbvty10s08a" path="res://Gym_bro.tscn" id="1_80nbo"]
 
+[sub_resource type="Gradient" id="Gradient_80nbo"]
+colors = PackedColorArray(0.07058824, 0.36862746, 0.7882353, 1, 0.69411767, 0.47058824, 0.85490197, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e2o6t"]
+gradient = SubResource("Gradient_80nbo")
+fill_from = Vector2(0.3340081, 0.9979757)
+
+[sub_resource type="LabelSettings" id="LabelSettings_80nbo"]
+font_size = 150
+font_color = Color(0.13246658, 0.16165262, 0.99999994, 1)
+outline_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2o6t"]
+font_size = 30
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e2o6t"]
 rough = true
 bounce = 0.1
@@ -10,7 +25,32 @@ bounce = 0.1
 
 [node name="Node2D" type="Node2D" unique_id=1225728506]
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=452249815]
+position = Vector2(-8, 0.99998474)
+scale = Vector2(18.1875, 11.28125)
+texture = SubResource("GradientTexture2D_e2o6t")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=550425584]
+
+[node name="Label" type="Label" parent="." unique_id=1460860682]
+offset_left = -424.0
+offset_top = -323.0
+offset_right = 407.0
+offset_bottom = -118.0
+text = "Gym Bros"
+label_settings = SubResource("LabelSettings_80nbo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1735726631]
+offset_left = -422.0
+offset_top = 188.0
+offset_right = 409.0
+offset_bottom = 393.0
+text = "Coming soon for Mark Kapapa's Final Project :)"
+label_settings = SubResource("LabelSettings_e2o6t")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CharacterBody2D" parent="." unique_id=1571358091 instance=ExtResource("1_80nbo")]
 scale = Vector2(0.25, 0.25)
