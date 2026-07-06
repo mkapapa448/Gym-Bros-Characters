@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 400.0
+const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 
 @onready var skeleton = $Bro 
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,17 +20,15 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		skeleton.scale.x = sign(direction)
 		$AnimationPlayer.speed_scale = 1.5
-		$AnimationPlayer.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimationPlayer.speed_scale = 1.0
-		$AnimationPlayer.play("idle")
-		
-	if direction > 0:
-		skeleton.scale.x = 1 # Facing right
-	elif direction < 0:
-		skeleton.scale.x = -1 # Facing left
-	
-	
+
+	if direction != 0:
+		$AnimationTree["parameters/playback"].travel("run")
+	else:
+		$AnimationTree["parameters/playback"].travel("idle")
+
 	move_and_slide()
