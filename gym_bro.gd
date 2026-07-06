@@ -21,11 +21,11 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		$AnimationPlayer.playback_speed = 1.25
+		$AnimationPlayer.speed_scale = 1.25
 		$AnimationPlayer.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$AnimationPlayer.playback_speed = 1.0
+		$AnimationPlayer.speed_scale = 1.0
 		$AnimationPlayer.play("idle")
 		
 	if direction > 0:
