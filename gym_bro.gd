@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
 
 @onready var skeleton = $Bro 
@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		$AnimationPlayer.speed_scale = 1.25
+		$AnimationPlayer.speed_scale = 1.5
 		$AnimationPlayer.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
